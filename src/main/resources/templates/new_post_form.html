@@ -1,0 +1,16 @@
+<html>
+	<body>
+		<h2>Nuevo post (Número de posts: {{postsNum}})</h2>
+		<form action="/post/new" method="post">
+			<p>Titulo:</p>
+			<input type="text" name="title" />
+
+			<p>Mensaje:</p>
+			<textarea name="body" rows="5" cols="40"></textarea>
+
+			<input type="submit" value="Enviar" />
+		</form>
+
+		<a href="/"> Volver al tablón</a>
+	</body>
+</html>

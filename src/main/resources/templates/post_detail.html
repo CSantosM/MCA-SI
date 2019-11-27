@@ -1,0 +1,36 @@
+<html>
+	<body>
+		<h1>Post</h1>
+
+		<p>{{post}}</p>
+
+		{{#showCommentTitle}}
+			<h3>Comentarios</h3>
+		{{/showCommentTitle}}
+
+		<ul>
+			{{#post.commentList}}
+				<li>{{.}}</li>
+				<form action="/post/{{post.id}}/comment/{{id}}/delete"
+					method="post">
+					<input type="submit" value="Borrar" />
+				</form>
+
+			{{/post.commentList}}
+		</ul>
+
+		<div>
+			<h4>Escribe un comentario</h4>
+			<form action="/post/{{post.id}}/newcomment" method="post">
+				<p>Nombre:</p>
+				<input type="text" name="name" value="{{name}}" />
+				<p>Comentario:</p>
+				<textarea name="comment" rows="5" cols="40"></textarea>
+
+				<input type="submit" value="Comentar" />
+			</form>
+		</div>
+
+		<a href="/"> Volver al tablón</a>
+	</body>
+</html>

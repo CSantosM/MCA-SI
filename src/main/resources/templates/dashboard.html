@@ -1,0 +1,25 @@
+<html>
+<body>
+	{{#isUserNew}}
+	<h1>Bienvenido/a</h1>
+	{{/isUserNew}}
+
+	<h1>Tablón Anuncios</h1>
+
+	{{#postList}}
+	<br>
+	<strong> Anuncio <span>{{key}}</span> </strong>
+	<br>
+    Titulo: <a href="post/{{key}}">{{value.title}} </a><br>
+
+	Mensaje: <span>{{value.body}} </span>
+	<br>
+
+    <br>
+
+	{{/postList}}
+
+	<br>
+	<a href="/post/form">Nuevo anuncio</a>
+</body>
+</html>
