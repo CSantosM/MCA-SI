@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "94d580ca-448e-4272-a173-aee269a485f6",
+		"name": "Carlos_Santos_P2",
+		"description": "# API REST - PRACTICA 2\n\nDocumentación  básica de las operaciones soportadas por la API REST de la **Práctica 2 - Tecnologías de Servicios de Internet**\n\n\n## GET ALL POST INFO\n\n_Obtener un listado con el identificador y el título de cada uno de los posts_\n\n* #### MÉTODO GET\n\n* #### URL:  http://localhost:8080/api/posts\n\n* #### RESPONSE\n\t```\n\t{\n\t\t\"0\": {\n\t\t\t\"id\": 0,\n\t\t\t\"title\": \"Master Cloud Apps\"\n\t\t\t}\n\t}\n\t```\n\n## GET POST INFO\n\n_Obtener toda la información de un post determinado (comentarios incluídos)_\n\n* #### MÉTODO GET\n\n* #### URL:  http://localhost:8080/api/post/id\n\n* #### RESPONSE\n\t```\n\t{\n\t\t\"id\": 3,\n\t\t\"title\": \"Pepe\",\n\t\t\"content\": \"Contenido de mi post\",\n\t\t\"comments\": [\n\t\t\t{\n\t\t\t\t\"id\": 4,\n\t\t\t\t\"author\": {\n\t\t\t\t\t\"id\": 1,\n\t\t\t\t\t\"name\": \"Juanito\"\n\t\t\t\t},\n\t\t\t\t\"comment\": \"Comentario de prueba\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"id\": 5,\n\t\t\t\t\"author\": {\n\t\t\t\t\t\"id\": 2,\n\t\t\t\t\t\"name\": \"Jupiter\"\n\t\t\t\t},\n\t\t\t\t\"comment\": \"Comentario 2\"\n\t\t\t}\n\t\t]\n\t}\n\t```\n\n## CREATE POST\n\n_Crear un post_\n\n* #### MÉTODO POST\n\n* #### URL:  http://localhost:8080/api/posts\n\n* #### BODY\n\t```\n\t{\n\t\t\"title\": \"Practica 1\",\n\t\t\"content\": \"Creacion de post desde API REST\",\n\t\t\"comments\": []\n\t}\n\t```\n\n* #### RESPONSE\n\n\t```\n\t{\n\t\t\"id\": 8,\n\t\t\"title\": \"Practica 1\",\n\t\t\"content\": \"Creacion de post desde API REST\",\n\t\t\"comments\": []\n\t}\n\t```\n\n## CREATE COMMENT\n\n_Obtener toda la información de un post determinado (comentarios incluídos)_\n\n* #### MÉTODO POST\n\n* #### URL:  http://localhost:8080/api/post/POST_ID/comment/AUTHOR_ID\n\n* #### BODY\n\n\t```\n\t{\n\n\t\t\"comment\": \"Comentario 3\"\n\t}\n\t```\n\n* #### RESPONSE\n\n\t```\n\t{\n\t\t\"id\": null,\n\t\t\"author\": {\n\t\t\t\"id\": 2,\n\t\t\t\"name\": \"Jupiter\",\n\t\t\t\"age\": 800\n\t\t},\n\t\t\"comment\": \"Comentario 3\"\n\t}\n\t```\n\n## DELETE COMMENT\n\n_Borrar un comentario_\n\n* #### MÉTODO DELETE\n\n* #### URL:  http://localhost:8080/api/post/POST_ID/comment/COMMENT_ID\n\n* #### RESPONSE\n\n\t```\n\t{\n\t\t\"id\": 7,\n\t\t\"author\": {\n\t\t\t\"id\": 2,\n\t\t\t\"name\": \"Jupiter\",\n\t\t\t\"age\": 800\n\t\t},\n\t\t\"comment\": \"wwwwwwwww\"\n\t}\n\t```\n\n## CREATE AUTHOR\n\n\n* #### MÉTODO POST\n\n* #### URL:  http://localhost:8080/api/authors\n\n* #### BODY\n\n\t```\n\t{\n\t\t\"name\": \"Jose Luis\",\n\t\t\"age\": \"522\"\n\t}\n\t```\n\n* #### RESPONSE\n\n\t```\n\t{\n\t\t\"id\": 9,\n\t\t\"name\": \"Jose Luis\",\n\t\t\"age\": 522\n\t}\n\t```\n\n## GET AUTHOR COMMENTS\n\n\n* #### MÉTODO GET\n\n* #### URL:  http://localhost:8080/api/comments/author/AUTHOR_ID\n\n* #### RESPONSE\n\t```\n\t[\n\t\t{\n\t\t\t\"id\": 3,\n\t\t\t\"comments\": [\n\t\t\t\t{\n\t\t\t\t\t\"id\": 8,\n\t\t\t\t\t\"comment\": \"Comentario 3\"\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n\t```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET ALL POST INFO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET POST INFO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/post/ID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"post",
+						"ID"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET AUTHOR COMMENTS",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/comments/author/AUTHOR_ID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"comments",
+						"author",
+						"AUTHOR_ID"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE POST",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Practica 1\",\n\t\"content\": \"Creacion de post desde API REST\",\n\t\"comments\": []\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE AUTHOR",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Jose Luis\",\n\t\"age\": \"522\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/authors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CREATE COMMENT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n\t\"comment\": \"Comentario 3\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/post/POST_ID/comment/AUTHOR_ID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"post",
+						"POST_ID",
+						"comment",
+						"AUTHOR_ID"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE COMMENT",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/post/POST_ID/comment/COMMENT_ID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"post",
+						"POST_ID",
+						"comment",
+						"COMMENT_ID"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "da8f1855-c6a3-4b1b-b9ef-01cbe1920f87",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2b78f371-feb7-4f66-a2f6-a431c819bade",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
